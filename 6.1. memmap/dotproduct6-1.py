@@ -34,14 +34,9 @@ def dot(nk: int, j: int, neighbor: int, jNeighbor: Tuple[np.ndarray]) -> None:
                 dpc[nk, j, band0, band1] = np.einsum("k,k,k->", dphase, wfc00, wfc10) + np.einsum("k,k,k->", dphase, wfc01, wfc11)
                 dpc[neighbor, jNeighbor, band1, band0] = dpc[nk, j, band0, band1].conj()
                 logger.debug(f"\t{nk}\t{band0}\t{j}\t{band1}\t",str(dpc[nk, j, band0, band1]))
-        #print(sys.getsizeof(wfc10))
-        #print(type(wfc10))
+
     else:  # Non-relativistic case
-        #te = 0
-        #c=0
-        #start_time = time()
-        # Load the memmapped file once
-        #wfc = np.load(os.path.join(m.wfcdirectory, f"k0{neighbor}.npy"), mmap_mode='r')
+
 
         # Iterate over bands and calculate the dot product
         for band0 in range(m.nbnd):
@@ -58,9 +53,7 @@ def dot(nk: int, j: int, neighbor: int, jNeighbor: Tuple[np.ndarray]) -> None:
 
                 logger.debug(f"\t{nk}\t{band0}\t{j}\t{band1}\t", str(dpc[nk, j, band0, band1]))
 
-        #end_time = time()
-        #print(end_time-start_time)
-        #print(te/20)
+
 
     logger.debug(f"\tFinished of nk: {nk:>4}\tneighbor: {neighbor:>4}\tin: {(time() - start):>4.2f} seconds")
 
