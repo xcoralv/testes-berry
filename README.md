@@ -6,9 +6,8 @@
   4. lzma
 #### Bandas agregadas
   5. save
-  6. Savez – using dictionary
-     
-  6.1. Memmap
+  6. Savez – using dictionary   
+    6.1. Memmap
 #### Bandas e k-points num só ficheiro
   7. save
 
