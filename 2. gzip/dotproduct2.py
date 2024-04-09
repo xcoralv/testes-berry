@@ -35,8 +35,7 @@ def dot(nk: int, j: int, neighbor: int, jNeighbor: Tuple[np.ndarray]) -> None:
                 dpc[nk, j, band0, band1] = np.einsum("k,k,k->", dphase, wfc00, wfc10) + np.einsum("k,k,k->", dphase, wfc01, wfc11)
                 dpc[neighbor, jNeighbor, band1, band0] = dpc[nk, j, band0, band1].conj()
                 logger.debug(f"\t{nk}\t{band0}\t{j}\t{band1}\t",str(dpc[nk, j, band0, band1]))
-        #print(sys.getsizeof(wfc10))
-        #print(type(wfc10))
+        
     else:  # Non-relativistic case
 
         for band0 in range(m.nbnd):
@@ -44,16 +43,12 @@ def dot(nk: int, j: int, neighbor: int, jNeighbor: Tuple[np.ndarray]) -> None:
                     wfc = f.read()
                     wfc0 = np.load(io.BytesIO(wfc))
 
-            #print('time elapsed 1',time_elapsed1)
             for band1 in range(m.nbnd):
 
                 with gzip.open(os.path.join(m.wfcdirectory, f"k0{nk}b0{band1}.npz"), 'rb') as f:
                     wfc = f.read()
                     wfc1 = np.load(io.BytesIO(wfc)).conj()
-                #wfc1 = wfc1['a'].conj()
-                #print(type(wfc1))
 
-                #print('time elapsed 2',time_elapsed2)
                 # not normalized dot product
                 dpc[nk, j, band0, band1] = np.einsum("k,k,k->", dphase, wfc0, wfc1)
                 dpc[neighbor, jNeighbor, band1, band0] = dpc[nk, j, band0, band1].conj()
