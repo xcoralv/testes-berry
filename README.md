@@ -11,4 +11,6 @@
     6.1 Memmap
 #### Bandas e k-points num só ficheiro
   7. save
+#### Multithreading
+#### Multiprocessing
 
