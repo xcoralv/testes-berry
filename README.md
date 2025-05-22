@@ -33,4 +33,13 @@ working directory."
 #### Bandas e k-points num só ficheiro
   7. save
 
+#### Scripts do gráfico
+    1) generatewfc: script 0/original
+    2) generatewfc7: script 0 c/ criação de 1 só ficheiro
+    3) generatewfc7QE (nº26): script 0 c/ criação de 1 só ficheiro e 1 só chamada ao QE
+    4) generatewfc13better (nº27): script 0 c/  criação de 1 só ficheiro, 1 só chamada ao QE e paralelização do ciclo
+    5) generatewfc23quase (nº28): script 0 c/  1 só chamada ao QE, paralelização do ciclo e criação de um só ficheiro com dict
+    6) generatewfc231 (nº23): script 0 c/  1 só chamada ao QE, paralelização do ciclo, criação de um só ficheiro com dict e process_large_string_parallel
+    7) generatewfc23wre (nº29): script 0 c/  1 só chamada ao QE, paralelização do ciclo, criação de um só ficheiro com dict, process_large_string_parallel e parallel replace
+    8) generatewfc251 (nº30): final version → script 0 c/  1 só chamada ao QE, paralelização do ciclo, criação de um só ficheiro com dict, process_large_string_parallel, parallel replace e run+stdout
 
