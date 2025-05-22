@@ -1,6 +1,7 @@
 k0 0.00 0.00 0.00
-nkx 5
-nky 5
+nkx 10
+nky 10
 nkz 1
 step 0.005
-nbnd 8
+nbnd 10
+npr 24
