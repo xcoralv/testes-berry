@@ -1,4 +1,4 @@
-#Como correr o Berry:
+# Como correr o Berry:
   "To run, first one has to create a working directory where the results will be saved, and
 inside it create a directory called dft.
 Inside dft should go the pseudopotential files for the atomic species of the dft calculation
