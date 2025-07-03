@@ -12,9 +12,12 @@ working directory."
 
   Ficheiros de input e dft na pasta "Inputs"
 
+
+
+original input1 -> 4.9G
 # Testes Berry
 #### Métodos de compressão:
-  1. savez_compressed
+  1. savez_compressed (4.7G)
   2. gzip
   3. bz2
   4. lzma
