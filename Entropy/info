@@ -1,0 +1,6 @@
+* bitentropy.py measures how stable each bit of each coefficient of a given "k03b0band" is accross runs. this script runs after a generatewfc version that produces five different files for each k-point/band combination.
+* byteentropy.py measures how redundant each file is, meaning how much a byte is repeated inside a file (analysis integrated within generatewfc.py)
+
+
+RESULTS
+  - bitentropy.py: little to no fluctuations between runs
