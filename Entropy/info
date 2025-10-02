@@ -1,6 +1,18 @@
-* bitentropy.py measures how stable each bit of each coefficient of a given "k03b0band" is accross runs. this script runs after a generatewfc version that produces five different files for each k-point/band combination.
-* byteentropy.py measures how redundant each file is, meaning how much a byte is repeated inside a file (analysis integrated within generatewfc.py)
+* bitentropy.py measures how stable each bit of each coefficient of a given "k03b0band" is accross runs. 
+    This script runs after a generatewfc version that produces five different files for each k-point/band combination.
+    The current precision is float64, which means each number has 1 sign bit, 11 exponent bits and 52 mantissa bits. 
+  The analysis, focused on the 52 mantissa bits, intended to assess if all the bits contained meaningful data. 
+  The analysis consisted of a bit consistency comparison along multiple runs. The chosen sample was five runs of the same k-point/band combination. 
+  Each psi was separated into real and imaginary arrays, whose elements were then deconstructed by bits 
+  (a complex number has no standard "single binary encoding" — it’s just two float64’s glued together). 
+  Every mantissa bit of every number was compared to the homonymous bit of the other executions.
+
+* byteentropy.py measures how redundant each file is, meaning how much a byte is repeated inside a file.
+      The analysis is integrated within generatewfc.py
+      Takes psi, convert to bytes and uses Counter to assess how many byte repetitions there is. Calculates probability of appearance of each byte and computes entropy by sum(- p * math.log2(p)).
+      
 
 
 RESULTS
-  - bitentropy.py: little to no fluctuations between runs
+  - bitentropy.py: little to no fluctuations between runs (effective ENOB calulated as 52 for every real and imaginary parts
+  - byteentropy.py: limited redundancy --> Entropy of psi.tobytes(): 7.644 bits/byte
